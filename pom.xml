@@ -30,25 +30,8 @@
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
-	<!-- <dependency>
-	    <groupId>jakarta.xml.bind</groupId>
-	    <artifactId>jakarta.xml.bind-api</artifactId>
-	</dependency>
-	<dependency>
-	    <groupId>org.glassfish.jaxb</groupId>
-	    <artifactId>jaxb-runtime</artifactId>
-	</dependency> -->
-
-	<dependency>
-	    <groupId>jakarta.xml.bind</groupId>
-	    <artifactId>jakarta.xml.bind-api</artifactId>
-	    
-	</dependency>
-	<dependency>
-	    <groupId>org.glassfish.jaxb</groupId>
-	    <artifactId>jaxb-runtime</artifactId>
-	    
-	</dependency>
+	
+	
 	
     <!-- Spring Boot Starter Web: para criar APIs REST -->
     <dependency>
@@ -69,6 +52,13 @@
 	    <version>8.0.33</version>
 	</dependency>
 
+    <!-- H2 DataBase for testing -->    
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+     
     <!-- Spring Boot Starter Security: autenticação e autorização -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -131,7 +121,20 @@
         <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
         <version>2.5.0</version>
     </dependency>
+    
+    <dependency>
+	    <groupId>jakarta.xml.bind</groupId>
+	    <artifactId>jakarta.xml.bind-api</artifactId>
+	</dependency>
+	
+	<!--   -->
+	<dependency>
+	    <groupId>org.glassfish.jaxb</groupId>
+	    <artifactId>jaxb-runtime</artifactId>
+	</dependency>
 </dependencies>
+
+
 
 	<build>
 		<plugins>

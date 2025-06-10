@@ -30,7 +30,6 @@ public class WebSecurityConfig {
 						auth -> auth.requestMatchers("/**").permitAll().anyRequest().authenticated())
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		
-		System.out.println("Passou no filterChain");
 
 		return http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class).build();
 	}
@@ -40,7 +39,6 @@ public class WebSecurityConfig {
 		AuthenticationManagerBuilder authenticationManagerBuilder = http
 				.getSharedObject(AuthenticationManagerBuilder.class);
 		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-		System.out.println("Passou no authmanager");
 		return authenticationManagerBuilder.build();
 	}
 

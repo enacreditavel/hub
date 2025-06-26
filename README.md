@@ -123,10 +123,10 @@ O projeto inclui testes automatizados. Para executá-los:
 
 ## 👤 Autor
 
-Desenvolvido por **Igor dos Santos Coelho**
+Desenvolvido por [**Igor dos Santos Coelho**](https://www.linkedin.com/in/enacreditavel/)
 
 ---
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT - veja o arquivo `LICENSE` para detalhes.
+Este projeto está sob a licença MIT - veja o arquivo [LICENSE](./LICENSE.txt) para detalhes.

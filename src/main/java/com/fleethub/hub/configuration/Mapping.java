@@ -150,6 +150,10 @@ public class Mapping {
 	
 	
 	// MÉTODOS DE MAPEAMENTO PARA DTOs
+	
+	public List<UsuarioDTO> mapListUsuarioDTO(List<Usuario> usuarios) {
+		return usuarios.stream().map(usuario -> mapUsuarioToDTO(usuario)).toList();
+	}
 
 	// Esse método mapeia um usuário para um DTO específico baseado em sua classe
 	public UsuarioDTO mapUsuarioToDTO(Usuario usuario) {

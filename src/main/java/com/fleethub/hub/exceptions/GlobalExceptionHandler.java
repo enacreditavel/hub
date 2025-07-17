@@ -1,4 +1,4 @@
-package com.fleethub.hub.exception;
+package com.fleethub.hub.exceptions;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

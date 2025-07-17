@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class MotoristaDTO extends UsuarioDTO {
+	private String tipo = "MOTORISTA";
 	
 	@NotNull(message = "A CNH é obrigatória")
 	private Long cnh;

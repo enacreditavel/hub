@@ -1,4 +1,4 @@
-package com.fleethub.hub.exception;
+package com.fleethub.hub.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fleethub.hub.abastecimento.AbastecimentoDTO;
 import com.fleethub.hub.abastecimento.AbastecimentoService;
 import com.fleethub.hub.configuration.Mapping;
-import com.fleethub.hub.exception.ResourceNotFoundException;
+import com.fleethub.hub.exceptions.ResourceNotFoundException;
 import com.fleethub.hub.usuario.entity.Motorista;
 import com.fleethub.hub.usuario.service.MotoristaService;
 

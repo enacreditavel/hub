@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fleethub.hub.configuration.Mapping;
-import com.fleethub.hub.exception.ResourceNotFoundException;
+import com.fleethub.hub.exceptions.ResourceNotFoundException;
 import com.fleethub.hub.usuario.DTO.MotoristaDTO;
 import com.fleethub.hub.usuario.entity.Motorista;
 import com.fleethub.hub.usuario.repository.MotoristaRepository;

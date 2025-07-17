@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class PassageiroDTO extends UsuarioDTO {
-	
+	private String tipo = "PASSAGEIRO";
 	private String contato;
 
 }

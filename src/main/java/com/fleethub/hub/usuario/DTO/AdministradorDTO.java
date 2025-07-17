@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class AdministradorDTO extends UsuarioDTO {
-	
+	private String tipo = "ADMINISTRADOR";
 	private String cargo;
 
 }

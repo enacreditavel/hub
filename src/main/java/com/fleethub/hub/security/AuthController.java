@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +43,8 @@ public class AuthController {
 	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 		try {
 			System.out.println("tentativa de autenticar");
+			System.out.println(loginRequest.getEmail() + " " + loginRequest.getSenha());
+			
 			authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getSenha()));
 		} catch (BadCredentialsException e) {
@@ -51,14 +52,14 @@ public class AuthController {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuário ou senha inválidos", e);
 		}
 
-		final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getEmail());
+		final UsuarioDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getEmail());
 		System.out.println( "Usuário autenticado: " + userDetails.getUsername());
 
 		final String jwt = jwtUtil.generateToken(userDetails);
 		System.out.println("JWT gerado: " + jwt);
 		
 
-		return ResponseEntity.ok(new LoginResponse(jwt));
+		return ResponseEntity.ok(new LoginResponse(jwt, userDetails.getId(), userDetails.getUsername()));
 	}
 
 }

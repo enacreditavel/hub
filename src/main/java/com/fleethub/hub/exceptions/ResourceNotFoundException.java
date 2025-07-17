@@ -1,4 +1,4 @@
-package com.fleethub.hub.exception;
+package com.fleethub.hub.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

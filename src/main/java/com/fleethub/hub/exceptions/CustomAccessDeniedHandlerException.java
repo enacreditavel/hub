@@ -1,4 +1,4 @@
-package com.fleethub.hub.exception;
+package com.fleethub.hub.exceptions;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

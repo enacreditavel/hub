@@ -31,7 +31,9 @@ public class JwtUtil {
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", userDetails.getAuthorities().toString().replaceAll("]", "").replaceAll("\\[", ""));
         claims.put("userID", userDetails.getId().toString());
+        claims.put("email", userDetails.getEmail());
         String token = createToken(claims, userDetails.getUsername());
+        System.out.println(extractAllClaims(token));
         return token;
     }
 
@@ -47,6 +49,9 @@ public class JwtUtil {
     
     public String extractRole(String token) {
         return extractAllClaims(token).get("role", String.class);
+    }
+    public String extractEmail(String token) {
+    	return extractAllClaims(token).get("email", String.class);
     }
 
     public String extractUsername(String token) {

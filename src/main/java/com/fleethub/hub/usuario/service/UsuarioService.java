@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -40,17 +43,17 @@ public class UsuarioService {
 		return usuarioDTO;
 	}
 	
-	public List<UsuarioDTO> findAllUsuario() {
+	public Page<UsuarioDTO> findAllUsuario(int page, int size) {
 		
-		List<Usuario> usuarios = usuarioRepository.findAll();
+		Page<Usuario> usuarios = usuarioRepository.findAll(PageRequest.of(page, size));
 		
 		if (usuarios.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nenhum usuario encontrado.");
 		}
 		
-		List<UsuarioDTO> usuariosDTO = mapping.mapListUsuarioDTO(usuarios);
+		List<UsuarioDTO> usuariosDTO = mapping.mapListUsuarioDTO(usuarios.getContent());
 		
-		return usuariosDTO;
+		return new PageImpl<>(usuariosDTO, usuarios.getPageable(), usuarios.getTotalElements());
 	}
 	
 	public void deleteById(Long id) {

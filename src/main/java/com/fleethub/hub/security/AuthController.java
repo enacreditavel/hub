@@ -2,6 +2,7 @@ package com.fleethub.hub.security;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,6 +35,7 @@ public class AuthController {
 	private UsuarioDetailsServiceImpl userDetailsService;
 
 	@PostMapping("/register")
+	@PreAuthorize("hasRole('ADMINISTRADOR')")	
 	public ResponseEntity<?> register(@Valid @RequestBody UsuarioDTO usuario) {
 		usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
